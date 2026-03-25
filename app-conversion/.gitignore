@@ -1,0 +1,9 @@
+# Rust build artifacts
+target/
+
+# Python bytecode
+__pycache__/
+*.pyc
+
+# Generated database files
+*.duckdb
