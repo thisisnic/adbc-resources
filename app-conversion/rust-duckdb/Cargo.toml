@@ -1,0 +1,9 @@
+[package]
+name = "rust-duckdb"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+adbc_core = "0.22"
+adbc_driver_manager = "0.22"
+arrow = { version = "57", features = ["prettyprint"] }
