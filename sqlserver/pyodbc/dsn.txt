@@ -1,0 +1,8 @@
+[MSSQLServerDatabase]
+Driver      = ODBC Driver 18 for SQL Server
+Description = Connect to my SQL Server instance
+Trace       = No
+Server      = localhost,1433
+Database    = master
+Encrypt     = yes
+TrustServerCertificate = yes
