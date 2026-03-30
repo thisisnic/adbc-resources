@@ -1,10 +1,21 @@
 # Testing it out - connecting to SQL Server from Python
 
-I wanted to test out the pain of connecting to databases, so I could test out the experience with and without ADBC.
+I've spent some time recently exploring ADBC.  ADBC is basically "Arrow stuff but for database connections".  And what I mean by that is, that it enables you to work efficiently with columnar data stored in a database.
+
+The key promises of ADBC are:
+1. Speed - queries can be retrieved much faster than when working with equivalent connectors ODBC/JDBC.
+2. Language and database agnostic - ADBC works across basically all the major programming languages, and has drivers for all key databases, so you're not having to choose your data connectivity stack based on these things.
+3. No system-level config hell.  Working with ODBC/JDBC can require complex config files and admin access.
+
+I did some experimentation with ADBC, and the speed and transferability were obvious (I'll write about this in a later post), but I was curious about that third point.  I'm currently a software engineer, with a background in data science earlier in my career.  I've written apps that connect to databases, and I've honestly never had that much trouble, though admittedly, this was on systems which had already been configured for me. 
+
+I wanted to test out this apparent pain to see for myself, and so in this post, I'll be talking about my swift journey from initial mild skepticism to convinced ADBC fan, via misery and frustration at the command line.
+
+I'll include the steps I took as well, in case you're particularly masochistic and would like to follow along. I'd advise against it.
 
 ## Running SQL Server in a Container
 
-First step, get hold of SQL server. I'm on Linux, so I decided to run it in a Docker image.  
+The first thing I wanted to do was run an isntance of SQL Server to connect to.  My laptop runs Ubuntu, and I decided the simplest thing to do would be to run SQL Server in a Docker image.  
 
 I use the instructions at https://learn.microsoft.com/en-us/sql/linux/quickstart-install-connect-docker?view=sql-server-ver17&tabs=cli&pivots=cs1-bash
 
